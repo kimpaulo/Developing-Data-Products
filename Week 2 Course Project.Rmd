@@ -1,0 +1,37 @@
+---
+title: "Developing Data Product - Week 2 Course Project"
+author: "Kim Paulo D. Magboo"
+date: "February 5, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## General Instructions
+
+Create a web page using R Markdown that features a map created with Leaflet.
+Host your webpage on either GitHub Pages, RPubs, or NeoCities.
+Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!
+
+## Review Criteria
+The rubric contains the following two questions:
+
+1. Does the web page feature a date and is this date less than two months before the date that you're grading this assignment?
+2. Does the web page feature an interactive map that appears to have been created with Leaflet?
+
+## First Map
+
+The map below shows the Cities within the National Capital Region in the Philippines
+
+```{r}
+library(leaflet)
+df <- data.frame(lat=runif(500, min=14.4081, max = 14.7566 ),
+                 lng=runif(500, min=120.9658, max = 121.1029 )) 
+                 
+df %>%
+leaflet() %>%
+addTiles() %>%  
+addMarkers(clusterOptions = markerClusterOptions())  
+```
