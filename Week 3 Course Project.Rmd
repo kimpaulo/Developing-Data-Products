@@ -1,0 +1,35 @@
+---
+title: "Week 3 Assignment"
+author: "Kim Paulo D. Magboo"
+date: "February 11, 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## General Instruction
+
+Create a web page presentation using R Markdown that features a plot created with Plotly. Host your webpage on either GitHub Pages, RPubs, or NeoCities. Your webpage must contain the date that you created the document, and it must contain a plot created with Plotly.
+
+## Scatterplot of Miles per Gallon and Weight based on the Number of Forward Gears
+
+Using the mtcars data, we perform exploratory data analyis by investigating the relationship of fuel cosumption and weight based on the number of forward gears.  
+
+```{r plotly, message=FALSE}
+library(plotly)
+mtcars$gear <- factor(mtcars$gear,labels=c('3','4','5'))
+plot_ly(mtcars, x =mtcars$wt, y=mtcars$mpg, color=mtcars$gear)
+```
+
+## Scatterplot of Miles per Gallon and Weight based on Number of Cylinders
+
+Using the mtcars data, we perform exploratory data analyis by investigating the relationship of fuel cosumption and weight based on the number of cylinders.  
+
+```{r plotly2, message=FALSE}
+mtcars$cyl <- factor(mtcars$cyl,labels=c('4','6', '8'))
+plot_ly(mtcars, x =mtcars$wt, y=mtcars$mpg, color=as.factor(mtcars$cyl))
+```
+
+## End of Presentation
